@@ -66,12 +66,12 @@ episodes:
 - 05-history.md
 - 06-ignore.md
 - 07-github.md
-- 08-collab.md
-- 09-conflict.md
 - 10-open.md
 - 11-licensing.md
 - 12-citation.md
 - 13-hosting.md
+- 08-collab.md
+- 09-conflict.md
 - 14-supplemental-rstudio.md
 
 # Information for Learners
