@@ -40,6 +40,9 @@
     <loc>https://swcarpentry.github.io/git-novice/13-hosting.html</loc>
   </url>
   <url>
+    <loc>https://swcarpentry.github.io/git-novice/14-branches.html</loc>
+  </url>
+  <url>
     <loc>https://swcarpentry.github.io/git-novice/14-supplemental-rstudio.html</loc>
   </url>
   <url>
@@ -101,6 +104,9 @@
   </url>
   <url>
     <loc>https://swcarpentry.github.io/git-novice/instructor/13-hosting.html</loc>
+  </url>
+  <url>
+    <loc>https://swcarpentry.github.io/git-novice/instructor/14-branches.html</loc>
   </url>
   <url>
     <loc>https://swcarpentry.github.io/git-novice/instructor/14-supplemental-rstudio.html</loc>
