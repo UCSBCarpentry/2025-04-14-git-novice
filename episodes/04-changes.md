@@ -632,8 +632,12 @@ Two important facts you should know about directories in Git.
   you can add all the files in the directory at once by referring to the directory in your `git add` command. Try it for yourself:
   
   ```bash
+<<<<<<< HEAD
   $ mkdir cakes/brownie_cakes
   $ touch cakes/brownie_cakes/lemon_drizzle.md
+=======
+  $ touch cakes/brownie cakes/lemon_drizzle
+>>>>>>> ea84a7055409dcdf218ba5057a2860a74b27f0cc
   $ git status
   $ git add cakes
   $ git status
