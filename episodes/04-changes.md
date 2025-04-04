@@ -632,7 +632,8 @@ Two important facts you should know about directories in Git.
   you can add all the files in the directory at once by referring to the directory in your `git add` command. Try it for yourself:
   
   ```bash
-  $ touch cakes/brownie_cakes/lemon_drizzle
+  $ mkdir cakes/brownie_cakes
+  $ touch cakes/brownie_cakes/lemon_drizzle.md
   $ git status
   $ git add cakes
   $ git status
@@ -722,8 +723,7 @@ to my local Git repository?
 The staging area can hold changes from any number of files
 that you want to commit as a single snapshot.
 
-1. Add some text to `guacamole.md` noting the rough price of the
-  ingredients.
+1. Modify `guacamole.md` to include the price of each ingredient (you can use fictional prices).
 2. Create a new file `groceries.md` with a list of products and
   their prices for different markets.
 3. Add changes from both files to the staging area,
