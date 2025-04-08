@@ -324,6 +324,7 @@
     <div id="flush-collapsecurrent" class="accordion-collapse collapse show" aria-labelledby="flush-headingcurrent" data-bs-parent="#accordionFlushcurrent">
       <div class="accordion-body">
         <ul><li><a href="#creating-a-branch">1. Creating a branch</a></li>
+<li><a href="#making-changes-and-merging">2. Making changes and merging</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
 
@@ -397,7 +398,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Branches</h1>
-        <p>Last updated on 2025-04-04 |
+        <p>Last updated on 2025-04-08 |
 
         <a href="https://github.com/swcarpentry/git-novice/edit/main/episodes/14-branches.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -475,7 +476,7 @@ shell.)</p>
   Default branch name on GitHub
   </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
 <div class="accordion-body">
 <p>In mid-2020, GitHub changed the name of the default branch (the first
 branch created when a repository is initialized) from “master” to
@@ -494,13 +495,16 @@ we’ll create a new branch called ‘broccoli’.</p>
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="fu">git</span> branch broccoli</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">$</span> git branch broccoli</span></code></pre>
 </div>
+<p>It’s important to note that the ‘broccoli’ branch was created from
+the branch we were in (i.e.’main’,) and until we’ve committed any
+changes, both branches are identical.</p>
 <p>As before, we can see the branches in our repository with:</p>
 <div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="fu">git</span> branch</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="ex">$</span> git branch</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -513,7 +517,7 @@ applied to that branch. We can can switch to our new branch using:</p>
 <div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="fu">git</span> switch broccoli</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="ex">$</span> git switch broccoli</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -528,7 +532,7 @@ applied to that branch. We can can switch to our new branch using:</p>
   Reduce the typing to create and swith to a branch
   </h3>
 </button>
-<div id="collapseSpoiler2" class="accordion-collapse collapse" aria-labelledby="headingSpoiler2" data-bs-parent="#accordionSpoiler2">
+<div id="collapseSpoiler2" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler2" aria-labelledby="headingSpoiler2">
 <div class="accordion-body">
 <p>Instead of typing <code>branch</code> first and then
 <code>switch</code>, we can create a new branch using the ‘-c’ option of
@@ -536,28 +540,78 @@ the switch command (short for –create,) like this:</p>
 <div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="fu">git</span> switch <span class="at">-c</span> broccoli</span></code></pre>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="ex">$</span> git switch <span class="at">-c</span> new-broccoli</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>Switched to branch 'broccoli'</code></pre>
+<pre class="output" tabindex="0"><code>Switched to branch 'new-broccoli'</code></pre>
 </div>
 <p>Switch is a relatively new command, included in 2019 with Git 2.23.
 Previously, the command for creating and switching to another branch
 would be <code>checkout</code>. So if you search online, or if you ask a
-colleague that uses Git, maybe they would tell you to use</p>
+colleague that uses Git, maybe they would tell you to use ‘checkout’,
+like the following command shows. However, the newer command
+<code>switch</code> makes it easier to remember what we want to do!</p>
 <div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="fu">git</span> checkout <span class="at">-b</span> broccoli</span></code></pre>
-</div>
-<p>The newer command <code>switch</code> makes it easier to remember
-what we want to do!</p>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="ex">$</span> git checkout <span class="at">-b</span> new-broccoli</span></code></pre>
 </div>
 </div>
 </div>
 </div>
+</div>
+</section><section><h2 class="section-heading" id="making-changes-and-merging">2. Making changes and merging<a class="anchor" aria-label="anchor" href="#making-changes-and-merging"></a></h2>
+<hr class="half-width"><p>Once more, we can check what branch are we working on with:</p>
+<div class="codewrapper sourceCode" id="cb11">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="ex">$</span> git branch</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>* broccoli
+  main</code></pre>
+</div>
+<p>Now that we are sure we are in the branch we want, we can start
+making changes. Let’s create a new file, called ‘roasted-broccoli.md’,
+to write our recipe.</p>
+<div class="codewrapper sourceCode" id="cb13">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="ex">$</span> nano roasted-broccoli.md</span></code></pre>
+</div>
+<p>Type the text below into the <code>roasted-broccoli.md</code>
+file:</p>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code># Roasted Broccoli
+## Ingredients
+* broccoli
+* olive oil
+* salt</code></pre>
+</div>
+<p>Save and close the file. Then we can add this new recipe to the
+staging area and commit as usual</p>
+<div class="codewrapper sourceCode" id="cb15">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a><span class="ex">$</span> git add roasted-broccoli.md</span>
+<span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a><span class="ex">$</span> git commit <span class="at">-m</span> <span class="st">"Add roasted broccoli recipe"</span></span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>[broccoli 063c431] Add roasted broccoli recipe
+ 1 file changed, 5 insertions(+)
+ create mode 100644 roasted-broccoli.md</code></pre>
+</div>
+<p>When we feel our new recipe is finished and it’s ready to be
+integrated to our cookbook, we can switch to our ‘main’ branch and merge
+the changes made.</p>
 <div id="keypoints1" class="callout keypoints">
 <div class="callout-square">
 <i class="callout-icon" data-feather="key"></i>
@@ -631,7 +685,7 @@ resolved.</li>
   "url": "https://swcarpentry.github.io/git-novice/instructor/14-branches.html",
   "identifier": "https://swcarpentry.github.io/git-novice/instructor/14-branches.html",
   "dateCreated": "2014-12-04",
-  "dateModified": "2025-04-04",
+  "dateModified": "2025-04-08",
   "datePublished": "2025-04-08"
 }
 
