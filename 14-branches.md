@@ -50,13 +50,16 @@ In mid-2020, GitHub changed the name of the default branch (the first branch cre
 
 We'll add a new recipe for roasted broccoli. But while we work on writing it, we don't want it to be part of our main cookbook. For this, we'll create a new branch called 'broccoli'.
 
+
 ```bash
-git branch broccoli
+$ git branch broccoli
 ```
+
+It's important to note that the 'broccoli' branch was created from the branch we were in (i.e.'main',) and until we've committed any changes, both branches are identical.
 
 As before, we can see the branches in our repository with:
 ```bash
-git branch
+$ git branch
 ```
 
 ```output
@@ -66,7 +69,7 @@ git branch
 
 'main' is still active, so any changes we make are going to be applied to that branch. We can can switch to our new branch using:
 ```bash
-git switch broccoli
+$ git switch broccoli
 ```
 
 ```output
@@ -80,20 +83,74 @@ Switched to branch 'broccoli'
 Instead of typing `branch` first and then `switch`, we can create a new branch using the '-c' option of the switch command (short for --create,) like this:
 
 ```bash
-git switch -c broccoli
+$ git switch -c new-broccoli
 ```
 ```output
-Switched to branch 'broccoli'
+Switched to branch 'new-broccoli'
 ```
 
-Switch is a relatively new command, included in 2019 with Git 2.23. Previously, the command for creating and switching to another branch would be `checkout`. So if you search online, or if you ask a colleague that uses Git, maybe they would tell you to use 
+Switch is a relatively new command, included in 2019 with Git 2.23. Previously, the command 
+for creating and switching to another branch would be `checkout`. So if you search online, 
+or if you ask a colleague that uses Git, maybe they would tell you to use 'checkout', like 
+the following command shows. However, the newer command `switch` makes it easier to remember what we want to do!
 ```bash
-git checkout -b broccoli
+$ git checkout -b new-broccoli
 ```
-
-The newer command `switch` makes it easier to remember what we want to do!
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
+
+## 2\. Making changes and merging
+
+Once more, we can check what branch are we working on with:
+
+```bash
+$ git branch
+```
+
+```output
+* broccoli
+  main
+```
+
+Now that we are sure we are in the branch we want, we can start making changes. Let's create
+a new file, called 'roasted-broccoli.md', to write our recipe.
+```bash
+$ nano roasted-broccoli.md
+```
+
+Type the text below into the `roasted-broccoli.md` file:
+
+```output
+# Roasted Broccoli
+## Ingredients
+* broccoli
+* olive oil
+* salt
+```
+
+Save and close the file. Then we can add this new recipe to the staging area and 
+commit as usual
+
+```bash
+$ git add roasted-broccoli.md
+$ git commit -m "Add roasted broccoli recipe"
+```
+
+```output
+[broccoli 063c431] Add roasted broccoli recipe
+ 1 file changed, 5 insertions(+)
+ create mode 100644 roasted-broccoli.md
+```
+
+
+
+When we feel our new recipe is finished and it's ready to be integrated to our
+cookbook, we can switch to our 'main' branch and merge the changes made.
+
+
+
+
+
 
 
 
