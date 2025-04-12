@@ -22,7 +22,8 @@ exercises: 10
 
 At the start of the lesson we configured the default branch to be called 'main'. Maybe you've noticed some of the messages from Git say 'On branch main'. So probably you're wondering, what is a branch?
 
-So far we have only used a sequential timeline with Git: each change builds on the one before, and only on the one before. However, there are times when we want to try things out without disrupting our main work. To do this, we can use branches to work on separate tasks in parallel. Each branch is a parallel timeline; changes made on the branch only affect that branch unless and until we explicitly combine them with work done in another branch.
+So far we have only used a sequential timeline with Git: each change builds on the one before, and only on the one before. However, there are times when we want to try things out without disrupting our main work. 
+To do this, we can use branches to work on separate tasks in parallel. Each branch is a parallel timeline, a snapshot; changes made on the branch only affect that branch unless and until we explicitly combine them with work done in another branch.
 
 We can see what branches exist in a repository using this command:
 
@@ -36,7 +37,7 @@ $ git branch
 
 By default, Git automatically creates a branch called 'master' when we initialize a repository. We changed this default name to 'main' when we ran the command '$ git config --global init.defaultBranch main', and we did this to match the default branch name in GitHub.
 
-The main (or master) branch is often considered the “official” version of the repository. The asterisk * indicates that it is currently active, i.e., that all changes we make will take place in this branch by default. (The active branch is like the current working directory in the shell.)
+The main (or master) branch is often considered the “official” version of the repository. The asterisk * indicates that it is currently active, i.e., that all changes we make will take place in this branch by default (the active branch is like the current working directory in the shell.)
 
 :::::::::::::::::::::::::::::::::::::::::: spoiler
 
@@ -99,7 +100,7 @@ $ git checkout -b new-broccoli
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
-## 2\. Making changes and merging
+## 2\. Making changes and comparing our snapshots
 
 Once more, we can check what branch are we working on with:
 
@@ -129,7 +130,7 @@ Type the text below into the `roasted-broccoli.md` file:
 ```
 
 Save and close the file. Then we can add this new recipe to the staging area and 
-commit as usual
+commit as usual.
 
 ```bash
 $ git add roasted-broccoli.md
@@ -142,12 +143,123 @@ $ git commit -m "Add roasted broccoli recipe"
  create mode 100644 roasted-broccoli.md
 ```
 
+We now can see a graphical representation of the history of our repository and
+how each branch is a different snapshot of our repository:
+
+```bash
+$ git log --all --graph
+```
+
+Even more, if we compare the files in our repository when we switch branches,
+we can even see our 'roasted-broccoli.md' recipe doesn't even appear in our file system
+when we are in the 'main' branch!
+
+```bash
+$ ls
+```
+```output
+cakes/  groceries.md  guacamole.md  ketchup.md  roasted-broccoli.md
+```
+
+```bash
+$ git switch main
+$ ls
+```
+```output
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+
+cakes/  groceries.md  guacamole.md  ketchup.md
+```
+
+Isn't that amazing?! Each branch is a completely different snapshot of our repository!
 
 
-When we feel our new recipe is finished and it's ready to be integrated to our
-cookbook, we can switch to our 'main' branch and merge the changes made.
+## 3\. Merging
 
+We decided our recipe is finished and ready to be integrated to our 'main' cookbook.
+To do this, we'll merge the 'broccoli' branch into 'main' (that’s how Git calls 
+integrating changes between branches, merging.) For this, we first need to make sure
+we are in the 'main' branch, and if not, switch to it.
 
+```bash
+$ git branch
+```
+```output
+  broccoli
+* main
+```
+
+When we are in 'main', we merge 'broccoli' like this:
+```bash
+$ git merge broccoli
+```
+```output
+Updating 971395c..ce0df55
+Fast-forward
+ roasted-broccoli.md | 5 +++++
+ 1 file changed, 5 insertions(+)
+ create mode 100644 roasted-broccoli.md
+```
+
+After merging, the 'broccoli' branch is no longer useful and we can delete it.
+
+```bash
+$ git branch -d broccoli
+```
+```output
+Deleted branch broccoli (was ce0df55).
+```
+
+And finally, we can push our changes to our remote GitHub repo. 
+
+```bash
+$ git push origin main
+```
+
+## 4\. Collaborating with branches
+
+We now know what branches are, how they can be useful, and to use them with the 
+'branch', 'switch', and 'merge' commands. But this has not been a collaborative workflow, as 
+all changes were made and merged in our local repo. 
+
+In this section we'll learn how to push a branch to GitHub, and let other people
+review and comment on our work, before it's merged to the 'main' cookbook. We'll work
+in pairs, and once again one person is the 'Collaborator', who makes the changes,
+and the other person is the 'Owner'. So make sure the Owner gives access to 
+their repo to the Collaborator, like explained in [Episode 11. Collaborating](./08-collab.html).
+
+![](fig/github-add-collaborators.png){alt='A screenshot of the GitHub Collaborators settings page, which is accessed by clicking "Settings" then "Collaborators"'}
+
+The collaborator will clone the Owner's repo into their `Desktop` folder
+
+```bash
+$ git clone git@github.com:owner/recipes-owner.git ~/Desktop/recipes-owner
+$ cd ~/Desktop/recipes-owner
+```
+
+In their local repo, the Collaborator creates a new branch called 'add-tomato-to-guac'
+
+```bash
+$ git switch -c add-tomato-to-guac
+```
+```output
+Switched to a new branch 'add-tomato-to-guac'
+```
+
+Then the Collaborator modifies the 'guacamole.md' recipe, like this
+```output
+# Guacamole
+## Ingredients
+* avocado (1.35)
+* lime (0.64)
+* salt (2)
+* diced tomato
+## Instructions
+* Put one avocado into a bowl
+* Add a squeeze of lime and a pinch of salt
+* Stir in diced tomato
+```
 
 
 
@@ -157,7 +269,6 @@ cookbook, we can switch to our 'main' branch and merge the changes made.
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
-- Conflicts occur when two or more people change the same lines of the same file.
-- The version control system does not allow people to overwrite each other's changes blindly, but highlights conflicts so that they can be resolved.
+- TODO
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
