@@ -18,6 +18,15 @@ exercises: 0
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
 
+To get started on the same place we left, go to the UCSBCarpentry/recipes-template
+GitHub repo [https://github.com/UCSBCarpentry/recipes-template](https://github.com/UCSBCarpentry/recipes-template). In
+there, click the "Use this template" green button at the upper-right corner and then
+select "Create a new repository". This will create in your GitHub account your own
+copy of this template. Make sure to call this repo with your name, for example 'recipes-jose',
+and create it as public.
+
+![](fig/use-template-repo.png){alt='Creating a repo from a template'}
+
 For the next step, get into pairs.  One person will be the "Owner" and the other
 will be the "Collaborator". The goal is that the Collaborator add changes into
 the Owner's repository. We will switch roles at the end, so both persons will
