@@ -360,7 +360,7 @@ Conflicts can also be minimized with project management strategies:
 
 :::::::::::::::::::::::::::::::::::::::  challenge
 
-## Solving Conflicts that You Create
+## Solving Conflicts that you Create
 
 Clone the repository created by your instructor.
 Add a new file to it,

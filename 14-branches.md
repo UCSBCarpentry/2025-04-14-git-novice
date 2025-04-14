@@ -231,44 +231,149 @@ their repo to the Collaborator, like explained in [Episode 11. Collaborating](./
 
 ![](fig/github-add-collaborators.png){alt='A screenshot of the GitHub Collaborators settings page, which is accessed by clicking "Settings" then "Collaborators"'}
 
-The collaborator will clone the Owner's repo into their `Desktop` folder
+The Collaborator will clone the Owner's repo into their `Desktop` folder
 
 ```bash
 $ git clone git@github.com:owner/recipes-owner.git ~/Desktop/recipes-owner
 $ cd ~/Desktop/recipes-owner
 ```
+We can check that changes the Collaborator pushes to GitHub will go directly to
+the repository of the owner, using the 'remote' command
+
+```bash
+$ git remote -v
+```
+```output
+origin  git@github.com:owner/recipes-owner.git (fetch)
+origin  git@github.com:owner/recipes-owner.git (push)
+```
 
 In their local repo, the Collaborator creates a new branch called 'add-tomato-to-guac'
 
 ```bash
-$ git switch -c add-tomato-to-guac
+$ git switch -c instr-broccoli
 ```
 ```output
-Switched to a new branch 'add-tomato-to-guac'
+Switched to a new branch 'instr-broccoli'
 ```
 
-Then the Collaborator modifies the 'guacamole.md' recipe, like this
+Then the Collaborator modifies the 'roasted-broccoli.md' recipe, like this
 ```output
-# Guacamole
+# Roasted Broccoli
 ## Ingredients
-* avocado (1.35)
-* lime (0.64)
-* salt (2)
-* diced tomato
+* broccoli
+* olive oil
+* salt
 ## Instructions
-* Put one avocado into a bowl
-* Add a squeeze of lime and a pinch of salt
-* Stir in diced tomato
+* Toss broccoli with olive oil and salt.
+* Roast at 425°F for 20 minutes.
 ```
 
+As usual, we add the desired files to the staging area and commit
+```bash
+$ git add roasted-broccoli.md
+$ git commit -m "Adding instructions to roasted broccoli recipe"
+```
+```output
+[instr-broccoli 611a56e] Adding instructions to roasted broccoli recipe
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+```
+
+As we've got the practice, we now push our changes to the remote repo on GitHub.
+The only changes we need to make in the command is that we need to push our new
+branch 'instr-broccoli', instead of the usual 'main'.
+
+```bash
+$ git push origin instr-broccoli
+```
+```output
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 20 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 400 bytes | 400.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+remote:
+remote: Create a pull request for 'instr-broccoli' on GitHub by visiting:
+remote:      https://github.com/owner/recipes-owner/pull/new/instr-broccoli
+remote:
+To github.com:owner/recipes-owner.git
+ * [new branch]      instr-broccoli -> instr-broccoli
+```
+
+If they visit the GitHub repo for recipes-owner, both the Owner and the Collaborator
+will see a new message at the top saying "instr-broccoli had recent pushes 
+x minutes ago [Compare and pull request]". 
+
+![](fig/new-branch-github.png){alt='A screenshot of the GitHub repo from the Collaborators profile'}
 
 
+Here is a new concept, what is a pull request? As [GitHub defines it](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests#about-pull-requests)
+, "A pull request is a proposal to merge a set of changes from one branch into 
+another. In a pull request, collaborators can review and discuss the proposed set 
+of changes before they integrate the changes into the main codebase".
 
+Being able to review and discuss changes is really useful! The Collaborator now clicks
+the button "Compare & pull request". In the "Open a pull request" page we can that
+we are proposing a merge into 'main' from the 'instr-broccoli' branch, and if we
+scroll down, we can also see the Collaborator's commit and the diff with the changes made.
+As we see, the Collaborator can add a title and a description for the suggested changes,
+and then click the "Create pull request" button.
+
+Then GitHub takes us to the pull request, where the Owner, the Collaborator, or any
+other person can see the commits included in the pull request, what files have changed,
+add comments to the discussion, close the pull request without merging changes, or 
+merge the pull request (which would merge the 'instr-broccoli' branch into 'main').
+
+![](fig/pull-request.png){alt='A screenshot of the GitHub repo from the Collaborators profile'}
+
+
+:::::::::::::::::::::::::::::::::::::::  challenge
+
+## Adding changes to a branch with a pull request open
+
+When we have a pull request, one option is to directly merge the suggested changes.
+But what if we need to modify something on top of the suggested changes? Let's say
+the Owner wants to add a final instruction step, which says "* Serve".
+
+For this challenge, the Owner will pull the 'instr-broccoli' into their local repo,
+modify the file to add the "* Serve" step, and push the changes to the GitHub repo. Then,
+Owner will make a final comment and merge the pull request.
+
+Discuss with your partner how this process looks in the previous pull request.
+
+Hint: For the Owner's local repo, the 'instr-broccoli' is an untracked branch,
+as it doesn't exist in their local repo. We can see this with the commands
+
+```bash
+$ git branch -v
+$ git branch -r
+```
+
+Therefore the Owner needs to create a new local branch (ideally called the same as
+the remote branch) and track that remote branch, like this
+
+```bash
+$ git switch -c instr-broccoli origin/instr-broccoli
+```
+
+::::::::::::::::::::::::::::::::::::::::::::::::::
 
 
 
 :::::::::::::::::::::::::::::::::::::::: keypoints
 
-- TODO
+- Branches allow parallel work without affecting the main codebase.
+
+- Each branch is a parallel snapshot. Changes are isolated until merged.
+
+- Use `git branch`, `git switch`, and `git merge` to manage branches.
+
+- Merging integrates changes from one branch into another.
+
+- Use `git push origin branch-name` to share a branch on GitHub.
+
+- Pull requests enable code review and discussion before merging.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::
