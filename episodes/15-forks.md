@@ -104,6 +104,7 @@ upstream        git@github.com:UCSBCarpentry/recipes-template.git (push)
 We can see that we now have an upstream remote
 where we can pull changes from. However, we won't be able to push directly to it,
 as we don't have the write permissions for that repo. To propose changes we'll have to
+do it as we covered in the previous section, with a pull request.
 
 ::::::::::::::::::::::::::::::::::::: instructor
 
