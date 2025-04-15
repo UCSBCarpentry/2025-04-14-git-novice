@@ -324,7 +324,7 @@
     <div id="flush-collapsecurrent" class="accordion-collapse collapse show" aria-labelledby="flush-headingcurrent" data-bs-parent="#accordionFlushcurrent">
       <div class="accordion-body">
         <ul><li><a href="#contributing-from-your-personal-copyfork">1. Contributing from your personal copy/fork</a></li>
-<li><a href="#fetching-changes-from-the-upstream-repo">2. Fetching changes from the upstream repo</a></li>
+<li><a href="#pulling-changes-from-the-upstream-repo">2. Pulling changes from the upstream repo</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
 
@@ -407,7 +407,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Forks</h1>
-        <p>Last updated on 2025-04-14 |
+        <p>Last updated on 2025-04-15 |
 
         <a href="https://github.com/swcarpentry/git-novice/edit/main/episodes/15-forks.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -500,7 +500,7 @@ request just like in the previous episode. Go ahead and do that, adding
 a title and a description to your pull request.</p>
 <p>Now the owner of the upstream repo, UCSBCarpentry, can see, review,
 modify, and merge your suggested changes to the cookbook of recipes.</p>
-</section><section><h2 class="section-heading" id="fetching-changes-from-the-upstream-repo">2. Fetching changes from the upstream repo<a class="anchor" aria-label="anchor" href="#fetching-changes-from-the-upstream-repo"></a></h2>
+</section><section><h2 class="section-heading" id="pulling-changes-from-the-upstream-repo">2. Pulling changes from the upstream repo<a class="anchor" aria-label="anchor" href="#pulling-changes-from-the-upstream-repo"></a></h2>
 <hr class="half-width"><p>You can also keep in sync your personal fork with the original repo.
 If you use the <code>git remote</code> command, you’ll see that it only
 fetches and pushes changes to your personal fork.</p>
@@ -516,11 +516,7 @@ fetches and pushes changes to your personal fork.</p>
 origin  git@github.com:yourname/recipes-fork-yourname.git (push)</code></pre>
 </div>
 <p>But you can add a new remote that points to the original/upstream
-repo. For convenience, we’ll call this new remote ‘upstream’. We can see
-that we now have an upstream remote where we can fetch changes. However,
-we won’t be able to push directly to it, as we don’t have the write
-permissions for that repo. To propose changes we’ll have to do it as we
-covered in the previous section.</p>
+repo. For convenience, we’ll call this new remote ‘upstream’.</p>
 <div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -535,12 +531,17 @@ origin  git@github.com:yourname/recipes-fork-yourname.git (push)
 upstream        git@github.com:UCSBCarpentry/recipes-template.git (fetch)
 upstream        git@github.com:UCSBCarpentry/recipes-template.git (push)</code></pre>
 </div>
+<p>We can see that we now have an upstream remote where we can pull
+changes from. However, we won’t be able to push directly to it, as we
+don’t have the write permissions for that repo. To propose changes we’ll
+have to do it as we covered in the previous section, with a pull
+request.</p>
 <div id="accordionInstructor1" class="accordion instructor-note accordion-flush">
 <div class="accordion-item">
 <button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor1" aria-expanded="false" aria-controls="collapseInstructor1">
   <h3 class="accordion-header" id="headingInstructor1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div> Instructor Note </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
 <div class="accordion-body">
 <p>Here the instructor should make a change to the upstream repo, so
 learners can pull those changes with their local repo and see how that
@@ -638,7 +639,7 @@ directly.</p></li>
   "url": "https://swcarpentry.github.io/git-novice/instructor/15-forks.html",
   "identifier": "https://swcarpentry.github.io/git-novice/instructor/15-forks.html",
   "dateCreated": "2014-12-04",
-  "dateModified": "2025-04-14",
+  "dateModified": "2025-04-15",
   "datePublished": "2025-04-15"
 }
 
