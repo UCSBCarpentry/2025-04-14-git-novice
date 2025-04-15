@@ -73,7 +73,7 @@ Now the owner of the upstream repo, UCSBCarpentry, can see, review, modify, and 
 your suggested changes to the cookbook of recipes.
 
 
-## 2. Fetching changes from the upstream repo
+## 2. Pulling changes from the upstream repo
 
 You can also keep in sync your personal fork with the original repo. If you use
 the `git remote` command, you'll see that it only fetches and pushes changes to
@@ -88,10 +88,7 @@ origin  git@github.com:yourname/recipes-fork-yourname.git (push)
 ```
 
 But you can add a new remote that points to the original/upstream repo. For convenience,
-we'll call this new remote 'upstream'. We can see that we now have an upstream remote
-where we can fetch changes. However, we won't be able to push directly to it,
-as we don't have the write permissions for that repo. To propose changes we'll have to
-do it as we covered in the previous section.
+we'll call this new remote 'upstream'.
 
 
 ```bash
@@ -104,6 +101,9 @@ origin  git@github.com:yourname/recipes-fork-yourname.git (push)
 upstream        git@github.com:UCSBCarpentry/recipes-template.git (fetch)
 upstream        git@github.com:UCSBCarpentry/recipes-template.git (push)
 ```
+We can see that we now have an upstream remote
+where we can pull changes from. However, we won't be able to push directly to it,
+as we don't have the write permissions for that repo. To propose changes we'll have to
 
 ::::::::::::::::::::::::::::::::::::: instructor
 

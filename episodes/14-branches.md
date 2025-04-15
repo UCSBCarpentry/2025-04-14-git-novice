@@ -248,7 +248,7 @@ origin  git@github.com:owner/recipes-owner.git (fetch)
 origin  git@github.com:owner/recipes-owner.git (push)
 ```
 
-In their local repo, the Collaborator creates a new branch called 'add-tomato-to-guac'
+In their local repo, the Collaborator creates a new branch called 'instr-broccoli'
 
 ```bash
 $ git switch -c instr-broccoli
