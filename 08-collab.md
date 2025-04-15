@@ -224,17 +224,11 @@ Switch roles and repeat the whole process.
 ## Review Changes
 
 The Owner pushed commits to the repository without giving any information
-to the Collaborator. How can the Collaborator find out what has changed with
-command line? And on GitHub?
+to the Collaborator. How can the Collaborator find out what has changed on GitHub?
 
 :::::::::::::::  solution
 
 ## Solution
-
-On the command line, the Collaborator can use `git fetch origin main`
-to get the remote changes into the local repository, but without merging
-them. Then by running `git diff main origin/main` the Collaborator
-will see the changes output in the terminal.
 
 On GitHub, the Collaborator can go to the repository and click on
 "commits" to view the most recent commits pushed to the repository.
