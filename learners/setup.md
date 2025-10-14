@@ -115,5 +115,10 @@ $ cd
 $ cd Desktop
 ```
 
+## Cheat sheet for the workshop
+Here is the cheat sheet created by Carpentry @ UCSB for this workshop [[Download PDF](files/git_cheatsheet.pdf)].
+
+It's based on the key points of this lesson and the GitHub Training cheat sheet  [available here](https://github.github.com/training-kit/)
+
 [workshop-setup]: https://carpentries.github.io/workshop-template/install_instructions/#git
 

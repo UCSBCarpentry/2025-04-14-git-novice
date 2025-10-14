@@ -4,7 +4,9 @@ title: 'Git Cheatsheets for Quick Reference'
 
 ## Git Cheatsheets for Quick Reference
 
+- Here is the cheat sheet created by Carpentry @ UCSB for this workshop [[Download PDF](files/git_cheatsheet.pdf)]. It's based on the key points of this lesson and the GitHub Training cheat sheet found below.
 - Printable Git cheatsheets in several languages are [available here](https://github.github.com/training-kit/) ([English version](https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf)). More material is available from the [GitHub training website](https://try.github.io/).
+- Here is a great [refresher for Bash commands](https://eds-221-programming-essentials.github.io/course-materials/interactive-sessions/interactive-session-1a.html#commonly-used-and-very-helpful-bash-commands) from EDS 221 - Scientific Programming Essentials 
 - An [interactive one-page visualisation](https://ndpsoftware.com/git-cheatsheet.html)
   about the relationships between workspace, staging area, local repository, upstream repository, and the commands associated with each (with explanations).
 - Both resources are also available in other languages (e.g. Spanish, French, and more).
