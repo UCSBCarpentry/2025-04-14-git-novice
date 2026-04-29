@@ -51,7 +51,7 @@ page](https://github.com/swcarpentry/git-novice/blob/main/episodes/13-hosting.md
 
 GitHub repositories can also be assigned DOIs, [by connecting its releases to
 Zenodo](https://guides.github.com/activities/citable-code/). For example,
-[`10.5281/zenodo.7908089`](https://zenodo.org/record/7908089) is the DOI that has
+[10.5281/zenodo.7908089](https://zenodo.org/record/7908089) is the DOI that has
 been "minted" for this introduction to Git.
 
 Using large, well-established services can also help you quickly take advantage

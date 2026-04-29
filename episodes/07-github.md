@@ -344,8 +344,7 @@ type:
 $ unset SSH_ASKPASS
 ```
 
-in the terminal, before you run `git push`.  Despite the name, [Git uses
-`SSH_ASKPASS` for all credential
+in the terminal, before you run `git push`.  Despite the name, `SSH_ASKPASS` [is used by Git for all credential
 entry](https://git-scm.com/docs/gitcredentials#_requesting_credentials), so
 you may want to unset `SSH_ASKPASS` whether you are using Git via SSH or
 https.

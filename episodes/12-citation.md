@@ -47,13 +47,12 @@ principles. [PeerJ Computer Science 2:e86](https://peerj.com/articles/cs-86/)
 https://doi.org/10.7717/peerj-cs.8
 ```
 
-There is also an [`@software{...`](https://www.google.com/search?q=git+citation+%22%40software%7B%22)
+There is also an `@software{...}`
 [BibTeX](https://www.ctan.org/pkg/bibtex) entry type in case
 no "umbrella" citation like a paper or book exists for the project you want to
 make citable.
 
-Finally, you may wish to include citation information in a [Citation File Format
-(`CITATION.cff`)](https://citation-file-format.github.io/). CFF files are standardized human and machine readable citation
+Finally, you may wish to include citation information in a [Citation File Format](https://citation-file-format.github.io/) (`CITATION.cff`). CFF files are standardized human and machine readable citation
 information files for software and datasets. If you host your repository on GitHub, this information is automatically linked
 and rendered on the repository page and a BibTeX snippet is provided, which users can copy and paste, making it easy for
 your project to be cited. Further, integration with both Zenodo and Zotero is supported.
