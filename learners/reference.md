@@ -16,7 +16,6 @@ Here is the cheat sheet created by Carpentry @ UCSB for this workshop. You can p
 
 ### Setting Up Git - Once per computer
 Configure user information for all local repositories:
-
 ```
 $ git config --global user.name "[name]"
 $ git config --global user.email "[email]"
@@ -27,7 +26,6 @@ $ git config --global init.defaultBranch main
 Git stores all of its repository data in the `.git` directory.
 
 Turn an existing directory into a git repository:
-
 ```
 $ git init
 ```
@@ -36,38 +34,32 @@ $ git init
 Files can be stored in a project’s working directory (which users see), the staging area (where the next commit is being built up, after `git add`) and the local repository (where commits are permanently recorded, after `git commit`).
 
 Show the status of a repository:
-
 ```
 $ git status
 ```
 
 Put files in the staging area:
-
 ```
 $ git add [file]
 ```
 
 Save staged content as a new commit in the local repository:
-
 ```
 $ git commit -m "[descriptive message]"
 ```
 
 ### Exploring History
 Display differences in file compared to a previous commit:
-
 ```
 $ git diff [commit] [file]
 ```
 
 Restore version of a file from last commit:
-
 ```
 $ git restore [file]
 ```
 
 Restore version of a file from a previous commit:
-
 ```
 $ git restore --source [commit] [file]
 ```
@@ -79,19 +71,16 @@ The `.gitignore` file is a text file that tells Git which files or folders to tr
 First, you’ll need to set up SSH to authenticate with GitHub. A local Git repository can be connected to one or more remote repositories in GitHub (or other hosting platforms).
 
 Clone (download) a GitHub repository:
-
 ```
 $ git clone [url]
 ```
 
 Copy changes from a local repository to a remote repository:
-
 ```
 $ git push
 ```
 
 Copy changes from a remote repository to a local repository:
-
 ```
 $ git pull
 ```
@@ -100,31 +89,26 @@ $ git pull
 Branches allow parallel work without affecting the main codebase. Each branch is a parallel snapshot until merged.
 
 See current branches:
-
 ```
 $ git branch
 ```
 
 Switch to a different branch:
-
 ```
 $ git switch [branch-name]
 ```
 
 Create a new branch:
-
 ```
 $ git switch -c [branch-name]
 ```
 
 Merge a specified branch’s history into current branch:
-
 ```
 $ git merge [branch]
 ```
 
 Delete the specified branch:
-
 ```
 $ git branch -d [branch-name]
 ```
@@ -135,13 +119,11 @@ $ git branch -d [branch-name]
 A fork is your own copy of another GitHub repository (the “upstream” repo). You can make changes freely even if you don’t have write access to the upstream repo.
 
 To see current remote repositories being tracked:
-
 ```
 $ git remote -v
 ```
 
 Add a new remote being tracked, maybe the upstream repo:
-
 ```
 $ git remote add [remote-name] [url]
 ```
@@ -154,7 +136,11 @@ Conflicts occur when two or more people change the same lines of the same file. 
 ### Open Science / Licensing / Citation / Hosting
 Open scientific work is more useful and accelerates discovery. The `LICENSE.md` file indicates how the contents of the repo may be used. Add a `CITATION` file to explain how you want your work cited.
 
+![](../episodes/fig/git_staging.svg){style='max-width: 100%; display: block; margin: 0 auto;'}
+<p style="text-align: center; font-size: 0.8em; margin-top: 5px !important;">Huang, Daisie (2015). How Git works: a cartoon.</p>
+
 :::
+
 
 <style>
 /* Web layout (optional) */
@@ -179,24 +165,53 @@ Open scientific work is more useful and accelerates discovery. The `LICENSE.md` 
   page-break-after: avoid;
 }
 .printable-cheatsheet pre {
-  padding: 8px;
+  padding: 8px !important;
+  padding-top: 8px !important;
   border-radius: 4px;
-  break-inside: avoid;
-  page-break-inside: avoid;
-  margin: 0.5em 0;
-  white-space: pre-wrap;
-  word-wrap: break-word;
+  margin: 0 0 0.8em 0 !important;
+  white-space: pre-wrap !important;
+  overflow-wrap: break-word !important;
+}
+.printable-cheatsheet pre code {
+  display: block !important; 
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  line-height: 1.2 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  white-space: pre-wrap !important;
+  overflow-wrap: break-word !important;
 }
 .printable-cheatsheet p {
   font-size: 0.9em;
-  margin: 0.5em 0;
-  break-inside: avoid;
-  page-break-inside: avoid;
+  margin: 0.5em 0 0.1em 0 !important;
+}
+.printable-cheatsheet pre .copy-button,
+.printable-cheatsheet pre button {
+  display: none !important;
+}
+
+/* Kill any invisible language badges or empty injected content */
+.printable-cheatsheet pre::before,
+.printable-cheatsheet code::before {
+  content: none !important;
+  display: none !important;
 }
 
 /* Print layout */
 @media print {
-  /* Hide everything in the body by default */
+  @page {
+    margin: 0.5cm;
+  }
+  
+  /* Hide everything in the body by default and lock to 1 page */
+  html, body {
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+  }
+  
   body * {
     visibility: hidden;
   }
@@ -204,6 +219,7 @@ Open scientific work is more useful and accelerates discovery. The `LICENSE.md` 
   /* Show only the cheat sheet wrapper and its children */
   #printable-cheatsheet, #printable-cheatsheet * {
     visibility: visible;
+    color: black !important;
   }
   
   /* Reposition the cheat sheet to the top left of the printed page */
@@ -221,26 +237,31 @@ Open scientific work is more useful and accelerates discovery. The `LICENSE.md` 
   }
 
   #printable-cheatsheet h2 {
-    margin-bottom: 10px;
+    font-size: 16pt;
+    margin-bottom: 2px;
   }
 
   #printable-cheatsheet h3 {
-    font-size: 11pt;
-    margin-top: 8px;
-    margin-bottom: 2px;
-    padding-bottom: 2px;
+    font-size: 12pt;
+    margin-top: 3px;
+    margin-bottom: 1px;
+    padding-bottom: 0px;
   }
   #printable-cheatsheet p {
-    font-size: 9pt;
-    margin: 2px 0;
+    font-size: 10pt;
+    margin: 1px 0 0 0 !important;
     line-height: 1.2;
   }
   #printable-cheatsheet pre {
-    font-size: 8.5pt;
+    font-size: 10pt;
     border: 1px solid #ccc;
     background-color: transparent !important;
-    padding: 4px;
-    margin: 2px 0 6px 0;
+    padding: 2px !important;
+    margin: 0 0 3px 0 !important;
+  }
+  #printable-cheatsheet pre code {
+    margin: 0 !important;
+    padding: 0 !important;
   }
   
   /* Hide typical site headers/footers */
