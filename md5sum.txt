@@ -21,6 +21,6 @@
 "episodes/14-supplemental-rstudio.md" "fb775c44625313a1b5adc7b012b3766e" "site/built/14-supplemental-rstudio.md" "2026-04-29"
 "instructors/instructor-notes.md" "688d07f9e69038f83982baab441c82dd" "site/built/instructor-notes.md" "2026-04-29"
 "learners/discuss.md" "bd705f10fa71c050333662cb12494f34" "site/built/discuss.md" "2026-04-29"
-"learners/reference.md" "95fddc9b5464b3f6a9025f08ab17a544" "site/built/reference.md" "2026-04-29"
+"learners/reference.md" "bbb40c453bdaa44a9c56a6ff7706e257" "site/built/reference.md" "2026-05-01"
 "learners/setup.md" "682cdca643cbea04e566ee52b9e8e9da" "site/built/setup.md" "2026-04-29"
 "profiles/learner-profiles.md" "60b93493cf1da06dfd63255d73854461" "site/built/learner-profiles.md" "2026-04-29"

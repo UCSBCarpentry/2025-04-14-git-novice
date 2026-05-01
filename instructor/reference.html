@@ -385,7 +385,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Git Cheatsheets for Quick Reference</h1>
-        <p>Last updated on 2026-04-29 |
+        <p>Last updated on 2026-05-01 |
 
         <a href="https://github.com/UCSBCarpentry/2025-04-14-git-novice/edit/main/learners/reference.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -504,6 +504,9 @@ Defining a workflow with your team is the first step to avoid them.</p>
 <code>LICENSE.md</code> file indicates how the contents of the repo may
 be used. Add a <code>CITATION</code> file to explain how you want your
 work cited.</p>
+<img src="../fig/git_staging.svg" style="max-width: 100%; display: block; margin: 0 auto;" class="figure"><p style="text-align: center; font-size: 0.8em; margin-top: 5px !important;">
+Huang, Daisie (2015). How Git works: a cartoon.
+</p>
 </div>
 </div>
 </div>
@@ -530,24 +533,53 @@ work cited.</p>
   page-break-after: avoid;
 }
 .printable-cheatsheet pre {
-  padding: 8px;
+  padding: 8px !important;
+  padding-top: 8px !important;
   border-radius: 4px;
-  break-inside: avoid;
-  page-break-inside: avoid;
-  margin: 0.5em 0;
-  white-space: pre-wrap;
-  word-wrap: break-word;
+  margin: 0 0 0.8em 0 !important;
+  white-space: pre-wrap !important;
+  overflow-wrap: break-word !important;
+}
+.printable-cheatsheet pre code {
+  display: block !important;
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  line-height: 1.2 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  white-space: pre-wrap !important;
+  overflow-wrap: break-word !important;
 }
 .printable-cheatsheet p {
   font-size: 0.9em;
-  margin: 0.5em 0;
-  break-inside: avoid;
-  page-break-inside: avoid;
+  margin: 0.5em 0 0.1em 0 !important;
+}
+.printable-cheatsheet pre .copy-button,
+.printable-cheatsheet pre button {
+  display: none !important;
+}
+
+/* Kill any invisible language badges or empty injected content */
+.printable-cheatsheet pre::before,
+.printable-cheatsheet code::before {
+  content: none !important;
+  display: none !important;
 }
 
 /* Print layout */
 @media print {
-  /* Hide everything in the body by default */
+  @page {
+    margin: 0.5cm;
+  }
+
+  /* Hide everything in the body by default and lock to 1 page */
+  html, body {
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+  }
+
   body * {
     visibility: hidden;
   }
@@ -555,6 +587,7 @@ work cited.</p>
   /* Show only the cheat sheet wrapper and its children */
   #printable-cheatsheet, #printable-cheatsheet * {
     visibility: visible;
+    color: black !important;
   }
 
   /* Reposition the cheat sheet to the top left of the printed page */
@@ -572,26 +605,31 @@ work cited.</p>
   }
 
   #printable-cheatsheet h2 {
-    margin-bottom: 10px;
+    font-size: 16pt;
+    margin-bottom: 2px;
   }
 
   #printable-cheatsheet h3 {
-    font-size: 11pt;
-    margin-top: 8px;
-    margin-bottom: 2px;
-    padding-bottom: 2px;
+    font-size: 12pt;
+    margin-top: 3px;
+    margin-bottom: 1px;
+    padding-bottom: 0px;
   }
   #printable-cheatsheet p {
-    font-size: 9pt;
-    margin: 2px 0;
+    font-size: 10pt;
+    margin: 1px 0 0 0 !important;
     line-height: 1.2;
   }
   #printable-cheatsheet pre {
-    font-size: 8.5pt;
+    font-size: 10pt;
     border: 1px solid #ccc;
     background-color: transparent !important;
-    padding: 4px;
-    margin: 2px 0 6px 0;
+    padding: 2px !important;
+    margin: 0 0 3px 0 !important;
+  }
+  #printable-cheatsheet pre code {
+    margin: 0 !important;
+    padding: 0 !important;
   }
 
   /* Hide typical site headers/footers */
@@ -768,8 +806,8 @@ manage conflicting changes made by different users.
   "url": "https://swcarpentry.github.io/git-novice/instructor/reference.html",
   "identifier": "https://swcarpentry.github.io/git-novice/instructor/reference.html",
   "dateCreated": "2014-12-04",
-  "dateModified": "2026-04-29",
-  "datePublished": "2026-04-29"
+  "dateModified": "2026-05-01",
+  "datePublished": "2026-05-01"
 }
 
   </script><script>
