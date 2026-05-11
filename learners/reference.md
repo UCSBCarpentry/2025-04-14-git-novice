@@ -136,7 +136,7 @@ Conflicts occur when two or more people change the same lines of the same file. 
 ### Open Science / Licensing / Citation / Hosting
 Open scientific work is more useful and accelerates discovery. The `LICENSE.md` file indicates how the contents of the repo may be used. Add a `CITATION` file to explain how you want your work cited.
 
-![](../episodes/fig/git_staging.svg){style='max-width: 100%; display: block; margin: 0 auto;'}
+![A diagram showing the entire git workflow: local changes are staged using git add, applied to the local repository using git commit, and can be restored from the repository using git restore](../episodes/fig/git_staging.svg){style='max-width: 100%; display: block; margin: 0 auto;'}
 <p style="text-align: center; font-size: 0.8em; margin-top: 5px !important;">Huang, Daisie (2015). How Git works: a cartoon.</p>
 
 :::
